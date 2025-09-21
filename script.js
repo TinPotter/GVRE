@@ -96,54 +96,36 @@ accordionItems.forEach(item => {
     });
 });
 
-// ===== COUNTER ANIMATION =====
-const counters = document.querySelectorAll('.counter');
+// ===== MEMBER COUNTER (FETCH FROM BACKEND) =====
+const apiURL = "https://serverjs-production-7f50.up.railway.app";
 
-const animateCounter = (counter, target) => {
-    let current = 0;
-    const increment = target / (2000 / 16);
-
-    const updateCounter = () => {
-        current += increment;
-        if (current < target) {
-            counter.textContent = Math.ceil(current);
-            requestAnimationFrame(updateCounter);
-        } else {
-            counter.textContent = target;
-        }
-    };
-    updateCounter();
-};
-
-// ===== FETCH MEMBER COUNT FROM BACKEND =====
-async function updateMemberCount() {
+const updateCounters = async () => {
     try {
-        const res = await fetch("https://your-backend.com/member-count");
+        const res = await fetch(apiURL);
         const data = await res.json();
 
-        document.querySelector(".counter[data-target='total']").textContent = data.totalMembers;
-        document.querySelector(".counter[data-target='online']").textContent = data.online;
-        document.querySelector(".counter[data-target='offline']").textContent = data.offline;
-        document.querySelector(".counter[data-target='bots']").textContent = data.bots;
+        // Animate counters smoothly
+        document.querySelectorAll('.counter').forEach(counter => {
+            const targetAttr = counter.classList.contains("online-counter") ? data.online :
+                               counter.textContent.includes("0") ? data.total :
+                               counter.textContent.includes("830") ? data.offline :
+                               data.bots;
+
+            gsap.to(counter, {
+                innerText: targetAttr,
+                duration: 1,
+                snap: { innerText: 1 },
+                ease: "power1.out"
+            });
+        });
     } catch (err) {
         console.error("Failed to fetch member count:", err);
     }
-}
+};
 
-// Animate when in view
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            updateMemberCount();
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-counters.forEach(counter => observer.observe(counter));
-
-// Optional: update every 30s
-setInterval(updateMemberCount, 30000);
+// Initial fetch + auto update every 30s
+updateCounters();
+setInterval(updateCounters, 30000);
 
 // ===== MOBILE NAV TOGGLE =====
 const hamburger = document.querySelector('.hamburger');
