@@ -1,197 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0a0a0a">
-    <title>GVRE™ | Next-Gen Roblox Roleplay</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#070707" />
+  <title>GVRE™ — Greenville Roleplay</title>
+
+  <!-- Fonts & icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Space+Grotesk:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" defer></script>
 </head>
 <body>
-    <!-- Floating GVRE™ Logo (Animated) -->
-    <div class="floating-logo">
-        <img src="https://via.placeholder.com/60x60/4CAF50/000000?text=GV" alt="GVRE™">
-    </div>
+  <!-- Accessible skip link -->
+  <a class="skip" href="#main">Skip to content</a>
 
-    <!-- Navbar (Glassmorphism) -->
-    <nav class="navbar">
-        <div class="logo">
-            <img src="https://via.placeholder.com/40x40/4CAF50/000000?text=GV" alt="GVRE™">
-            <h1>GVRE™</h1>
-        </div>
-        <ul class="nav-links">
-            <li><a href="#home" data-text="Home">Home</a></li>
-            <li><a href="#about" data-text="About">About</a></li>
-            <li><a href="#community" data-text="Community">Community</a></li>
-            <li><a href="#members" data-text="Members">Members</a></li>
-            <li><a href="#rules" data-text="Rules">Rules</a></li>
-        </ul>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+  <!-- Floating interactive logo -->
+  <button class="floating-logo" aria-label="GVRE logo" title="GVRE">
+    <img src="https://via.placeholder.com/64/00E676/000000?text=GV" alt="GVRE logo">
+  </button>
+
+  <!-- Nav -->
+  <header class="site-header">
+    <nav class="nav container" role="navigation" aria-label="Main">
+      <div class="brand">
+        <img src="https://via.placeholder.com/40/00E676/000000?text=G" alt="" aria-hidden="true">
+        <span class="brand-name">GVRE<span class="tm">™</span></span>
+      </div>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" data-text="Home">Home</a></li>
+        <li><a href="#about" data-text="About">About</a></li>
+        <li><a href="#community" data-text="Community">Community</a></li>
+        <li><a href="#members" data-text="Members">Members</a></li>
+        <li><a href="#rules" data-text="Rules">Rules</a></li>
+      </ul>
+
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
     </nav>
+  </header>
 
-    <!-- Hero Section (Animated Gradient BG) -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h2>
-                <span class="glitch" data-text="GVRE™">GVRE™</span>
-                <span class="subtitle">Next-Gen Roleplay</span>
-            </h2>
-            <p>Where Roblox meets the future. <strong>Join 10K+ players</strong> in the most immersive RP experience.</p>
-            <div class="cta-buttons">
-                <a href="#about" class="btn primary">Explore <i class="fas fa-rocket"></i></a>
-                <a href="#" class="btn secondary">Join Discord <i class="fab fa-discord"></i></a>
-            </div>
+  <main id="main">
+    <!-- HERO -->
+    <section id="home" class="hero container">
+      <div class="hero-left">
+        <h1 class="logo-title" aria-hidden="true">
+          <span class="glitch" data-text="GVRE">GVRE</span>
+          <span class="subtitle">Next-Gen Roleplay</span>
+        </h1>
+        <p class="lead">Where Greenville IRL vibes meet Roblox — custom scripts, weekly events, chaotic sus moments. <strong>10k+ players</strong> and counting.</p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary magnetic" href="#about">Explore <i class="fas fa-rocket"></i></a>
+          <a class="btn btn-ghost" href="#" target="_blank" rel="noopener">Join Discord <i class="fab fa-discord"></i></a>
         </div>
-        <div class="hero-visual">
-            <div class="floating-elements">
-                <img src="https://via.placeholder.com/100x100/FF5722/000000?text=👮" alt="Cop" class="float-1">
-                <img src="https://via.placeholder.com/80x80/2196F3/000000?text=💰" alt="Cash" class="float-2">
-                <img src="https://via.placeholder.com/120x120/9C27B0/000000?text=🔥" alt="Fire" class="float-3">
-            </div>
+
+        <div class="meta-row">
+          <div class="badge"><i class="fas fa-star"></i> Verified</div>
+          <div class="badge clickable" id="member-toggle" role="button" aria-pressed="false" tabindex="0">
+            <i class="fas fa-users"></i> <span id="member-count">1250</span>
+          </div>
         </div>
+      </div>
+
+      <div class="hero-right" aria-hidden="true">
+        <!-- floating emoji cards (pure decorative) -->
+        <div class="floating-card f1">👮</div>
+        <div class="floating-card f2">💰</div>
+        <div class="floating-card f3">🔥</div>
+      </div>
     </section>
 
-    <!-- About Section (Animated Cards) -->
-    <section id="about" class="about">
-        <h2>🌌 About <span>GVRE™</span></h2>
-        <div class="about-grid">
-            <div class="card glass">
-                <div class="card-icon">🏙️</div>
-                <h3>Our World</h3>
-                <p>A sprawling metropolis where every choice shapes your story. From street-level hustles to high-stakes heists, GVRE™ is your canvas.</p>
-            </div>
-            <div class="card glass">
-                <div class="card-icon">👑</div>
-                <h3>Leadership</h3>
-                <p>Founded by <strong>WalterWhite</strong>. Backed by a team of OG Roblox devs and moderators ensuring fairness and fun.</p>
-            </div>
-            <div class="card glass">
-                <div class="card-icon">🚀</div>
-                <h3>Why Us?</h3>
-                <p>Custom scripts, weekly events, and a community that feels like family. We’re not just a server—we’re a movement.</p>
-            </div>
+    <!-- MEMBERS BREAKDOWN (collapsible small panel) -->
+    <section id="members-panel" class="members-panel container" aria-hidden="true">
+      <div class="members-breakdown glass">
+        <h3>Member breakdown</h3>
+        <div class="members-stats">
+          <div class="mstat">
+            <div class="mnum" data-target="1250">0</div>
+            <div class="mlabel">Total</div>
+          </div>
+          <div class="mstat">
+            <div class="mnum online" data-target="420">0</div>
+            <div class="mlabel">Online</div>
+          </div>
+          <div class="mstat">
+            <div class="mnum offline" data-target="830">0</div>
+            <div class="mlabel">Offline</div>
+          </div>
+          <div class="mstat">
+            <div class="mnum bots" data-target="12">0</div>
+            <div class="mlabel">Bots</div>
+          </div>
         </div>
+      </div>
     </section>
 
-    <!-- Community Section (Swipeable Gallery) -->
-    <section id="community" class="community">
-        <h2>🎭 Community <span>Hub</span></h2>
-        <div class="community-tabs">
-            <button class="tab-btn active" data-tab="moments">Sus Moments</button>
-            <button class="tab-btn" data-tab="emojis">Emojis</button>
-            <button class="tab-btn" data-tab="stickers">Stickers</button>
-        </div>
-        <div class="tab-content active" data-tab="moments">
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x200/FF5722/000000?text=Sus+1" alt="Sus Moment">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x200/2196F3/000000?text=Sus+2" alt="Sus Moment">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://via.placeholder.com/300x200/9C27B0/000000?text=Sus+3" alt="Sus Moment">
-                </div>
-            </div>
-        </div>
-        <div class="tab-content" data-tab="emojis">
-            <div class="emoji-grid">
-                <span>👮</span><span>💰</span><span>🔥</span><span>🚔</span><span>😈</span>
-                <span>🎮</span><span>🏆</span><span>💥</span><span>🚗</span><span>🏠</span>
-            </div>
-        </div>
-        <div class="tab-content" data-tab="stickers">
-            <div class="sticker-showcase">
-                <img src="https://via.placeholder.com/150x150/4CAF50/000000?text=Sticker+1" alt="Sticker">
-                <img src="https://via.placeholder.com/150x150/FF5722/000000?text=Sticker+2" alt="Sticker">
-            </div>
-        </div>
+    <!-- ABOUT -->
+    <section id="about" class="about container">
+      <h2 class="section-title">About <span>GVRE</span></h2>
+      <p class="section-sub">A neon metropolis for roleplayers — your choices write the story.</p>
+      <div class="cards">
+        <article class="card glass" data-animate>
+          <div class="card-emoji">🏙️</div>
+          <h4>Our World</h4>
+          <p>Street-level hustles, factions, and events. A living map that reacts to players.</p>
+        </article>
+
+        <article class="card glass" data-animate>
+          <div class="card-emoji">👑</div>
+          <h4>Leadership</h4>
+          <p>Owned by <strong>WalterWhite</strong> — devs & mods focused on stability and fair RP.</p>
+        </article>
+
+        <article class="card glass" data-animate>
+          <div class="card-emoji">🚀</div>
+          <h4>Why GVRE</h4>
+          <p>Custom systems, weekly drops, and a hype community that actually plays together.</p>
+        </article>
+      </div>
     </section>
 
-    <!-- Members Section (Animated Counters) -->
-    <section id="members" class="members">
-        <h2>👥 Members <span>Live</span></h2>
-        <div class="stats-grid">
-            <div class="stat-card glass">
-                <div class="stat-icon">👤</div>
-                <h3>Total Members</h3>
-                <p class="counter" data-target="1250">0</p>
-            </div>
-            <div class="stat-card glass">
-                <div class="stat-icon">🟢</div>
-                <h3>Online</h3>
-                <p class="counter online-counter" data-target="420">0</p>
-            </div>
-            <div class="stat-card glass">
-                <div class="stat-icon">🔴</div>
-                <h3>Offline</h3>
-                <p class="counter" data-target="830">0</p>
-            </div>
-            <div class="stat-card glass">
-                <div class="stat-icon">🤖</div>
-                <h3>Bots</h3>
-                <p class="counter" data-target="12">0</p>
-            </div>
+    <!-- COMMUNITY -->
+    <section id="community" class="community container">
+      <h2 class="section-title">Community <span>Hub</span></h2>
+
+      <div class="tabs" role="tablist" aria-label="Community sections">
+        <button class="tab active" role="tab" aria-selected="true" data-tab="moments">Sus Moments</button>
+        <button class="tab" role="tab" data-tab="emojis">Emojis</button>
+        <button class="tab" role="tab" data-tab="stickers">Stickers</button>
+        <div class="tab-underline" aria-hidden="true"></div>
+      </div>
+
+      <div class="tab-panels">
+        <div class="panel active" data-panel="moments">
+          <div class="gallery" id="gallery">
+            <div class="g-item"><img src="https://via.placeholder.com/340x220/FF5722/000000?text=Sus+1" alt="Sus moment 1"></div>
+            <div class="g-item"><img src="https://via.placeholder.com/340x220/2196F3/000000?text=Sus+2" alt="Sus moment 2"></div>
+            <div class="g-item"><img src="https://via.placeholder.com/340x220/9C27B0/000000?text=Sus+3" alt="Sus moment 3"></div>
+          </div>
         </div>
+
+        <div class="panel" data-panel="emojis" aria-hidden="true">
+          <div class="emoji-grid">
+            <button class="emoji">👮</button>
+            <button class="emoji">💰</button>
+            <button class="emoji">🔥</button>
+            <button class="emoji">😈</button>
+            <button class="emoji">🏆</button>
+            <button class="emoji">🎮</button>
+          </div>
+        </div>
+
+        <div class="panel" data-panel="stickers" aria-hidden="true">
+          <div class="sticker-row">
+            <img src="https://via.placeholder.com/150/00E676/000000?text=Sticker1" alt="Sticker 1">
+            <img src="https://via.placeholder.com/150/FF5722/000000?text=Sticker2" alt="Sticker 2">
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Rules Section (Expandable Accordion) -->
-    <section id="rules" class="rules">
-        <h2>📜 Rules <span>& Guidelines</span></h2>
-        <div class="accordion">
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <span>1. Respect Everyone</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    <p>No harassment, hate speech, or toxicity. GVRE™ is a safe space for all players.</p>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <span>2. No Exploiting</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    <p>Found a glitch? Report it—don’t abuse it. Exploiters get permanently banned.</p>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <button class="accordion-header">
-                    <span>3. Roleplay Realistically</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="accordion-content">
-                    <p>Stay in character. No godmodding, powergaming, or random chaos.</p>
-                </div>
-            </div>
+    <!-- RULES -->
+    <section id="rules" class="rules container">
+      <h2 class="section-title">Rules <span>& Guidelines</span></h2>
+
+      <div class="accordion" role="region" aria-label="Rules list">
+        <div class="acc-item">
+          <button class="acc-head" aria-expanded="false">1. Respect Everyone <i class="fas fa-chevron-down"></i></button>
+          <div class="acc-body"><p>No harassment, hate speech, or toxicity. This is a safe space.</p></div>
         </div>
+
+        <div class="acc-item">
+          <button class="acc-head" aria-expanded="false">2. No Exploiting <i class="fas fa-chevron-down"></i></button>
+          <div class="acc-body"><p>Report glitches. Abusing exploits leads to permanent bans.</p></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-head" aria-expanded="false">3. Roleplay Realistically <i class="fas fa-chevron-down"></i></button>
+          <div class="acc-body"><p>Stay in character—no godmodding or random chaos.</p></div>
+        </div>
+      </div>
     </section>
+  </main>
 
-    <!-- Footer (Animated Wave) -->
-    <footer>
-        <div class="wave"></div>
-        <div class="footer-content">
-            <p>© 2025 <strong>GVRE™</strong> | Greenville Roleplay Envision</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-roblox"></i> Roblox Group</a>
-                <a href="#"><i class="fab fa-discord"></i> Discord</a>
-                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-            </div>
-        </div>
-    </footer>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="copy">© <strong>GVRE</strong> 2025</div>
+      <div class="socials">
+        <a href="#" aria-label="Roblox group"><i class="fab fa-roblox"></i></a>
+        <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+      </div>
+    </div>
+    <!-- animated svg wave -->
+    <svg class="wave" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0,60 C300,120 600,0 900,60 C1050,90 1200,60 1200,60 L1200,120 L0,120 Z"></path></svg>
+  </footer>
 
-    <script src="script.js"></script>
+  <!-- Script -->
+  <script src="script.js" defer></script>
 </body>
 </html>
