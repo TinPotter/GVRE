@@ -99,7 +99,7 @@ accordionItems.forEach(item => {
 // ===== MEMBER COUNTER (DISCORD API, INVITE-BASED) =====
 
 // You can use either a full invite URL or just the invite code
-const inviteLink = "https://discord.gg/yourInviteCode";
+const inviteLink = "https://discord.gg/NXhWtMWQwr";
 const inviteCode = inviteLink.split("/").pop();
 
 const updateCounters = async () => {
@@ -146,3 +146,4 @@ floatingLogo.addEventListener('click', () => {
         repeat: 1
     });
 });
+
