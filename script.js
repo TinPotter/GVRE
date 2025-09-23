@@ -96,34 +96,33 @@ accordionItems.forEach(item => {
     });
 });
 
-// ===== MEMBER COUNTER (FETCH FROM BACKEND) =====
-const apiURL = "https://serverjs-production-7f50.up.railway.app";
+// ===== MEMBER COUNTER (DISCORD API, INVITE-BASED) =====
+
+// You can use either a full invite URL or just the invite code
+const inviteLink = "https://discord.gg/yourInviteCode";
+const inviteCode = inviteLink.split("/").pop();
 
 const updateCounters = async () => {
-    try {
-        const res = await fetch(apiURL);
-        const data = await res.json();
+  try {
+    const res = await fetch(`https://discord.com/api/v9/invites/${inviteCode}?with_counts=true`);
+    if (!res.ok) throw new Error("Discord API error");
+    const data = await res.json();
 
-        // Animate counters smoothly
-        document.querySelectorAll('.counter').forEach(counter => {
-            const targetAttr = counter.classList.contains("online-counter") ? data.online :
-                               counter.textContent.includes("0") ? data.total :
-                               counter.textContent.includes("830") ? data.offline :
-                               data.bots;
+    const total = data.approximate_member_count || 0;
+    const online = data.approximate_presence_count || 0;
+    const offline = total - online;
 
-            gsap.to(counter, {
-                innerText: targetAttr,
-                duration: 1,
-                snap: { innerText: 1 },
-                ease: "power1.out"
-            });
-        });
-    } catch (err) {
-        console.error("Failed to fetch member count:", err);
-    }
+    // Update DOM
+    document.querySelector("#member-count").textContent = total;
+    document.querySelector('.mnum[data-target="1250"]').textContent = total;
+    document.querySelector('.mnum.online').textContent = online;
+    document.querySelector('.mnum.offline').textContent = offline;
+  } catch (err) {
+    console.error("Failed to fetch Discord counts:", err);
+  }
 };
 
-// Initial fetch + auto update every 30s
+// Initial + refresh every 30s
 updateCounters();
 setInterval(updateCounters, 30000);
 
