@@ -1,29 +1,29 @@
 /* ===== Variables & base ===== */
 :root{
-  --bg:#070707;
-  --card:#0f0f10;
-  --muted:#9aa0a6;
-  --neon1:#00E676; /* lime */
-  --neon2:#00C2FF; /* cyan */
-  --neon3:#C84CFF; /* purple */
-  --glass: rgba(255,255,255,0.04);
-  --glass-border: rgba(255,255,255,0.06);
-  --radius:14px;
-  --ease: cubic-bezier(.22,.9,.3,1);
-  --container:1200px;
+  --bg:#070707;
+  --card:#0f0f10;
+  --muted:#9aa0a6;
+  --neon1:#00E676; /* lime */
+  --neon2:#00C2FF; /* cyan */
+  --neon3:#C84CFF; /* purple */
+  --glass: rgba(255,255,255,0.04);
+  --glass-border: rgba(255,255,255,0.06);
+  --radius:14px;
+  --ease: cubic-bezier(.22,.9,.3,1);
+  --container:1200px;
 }
 
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
-  margin:0;
-  background:linear-gradient(180deg,var(--bg),#050505 60%);
-  color:#e9eef5;
-  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  -webkit-tap-highlight-color:transparent;
-  overflow-x:hidden;
+  margin:0;
+  background:linear-gradient(180deg,var(--bg),#050505 60%);
+  color:#e9eef5;
+  font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  -webkit-tap-highlight-color:transparent;
+  overflow-x:hidden;
 }
 
 /* container */
@@ -64,11 +64,30 @@ body{
 
 /* CTA + badges */
 .cta-row{display:flex;gap:12px;margin-top:18px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;border:1px solid transparent;text-decoration:none;font-weight:600;cursor:pointer;transition:all .28s var(--ease)}
-.btn i{opacity:.9}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;border:1px solid transparent;text-decoration:none;font-weight:600;cursor:pointer;transition:all .28s var(--ease);position:relative;overflow:hidden;}
+.btn i{opacity:.9;transition:transform .3s var(--ease)}
+.btn:hover i{transform:scale(1.2)}
 .btn-primary{background:linear-gradient(90deg,var(--neon1),var(--neon2));color:#000;box-shadow:0 8px 30px rgba(0,226,118,0.08)}
-.btn-primary:hover{transform:translateY(-4px);filter:brightness(1.02)}
-.btn-ghost{background:transparent;color:var(--neon1);border:1px solid rgba(255,255,255,0.04)}
+.btn-primary:hover{transform:translateY(-4px);filter:brightness(1.02);box-shadow:0 12px 40px rgba(0,226,118,0.2)}
+.btn-ghost{background:transparent;color:var(--neon1);border:1px solid rgba(255,255,255,0.04);transition:all .28s var(--ease);position:relative;overflow:hidden;}
+.btn-ghost:hover{transform:translateY(-4px);box-shadow:0 0 15px rgba(0, 226, 118, 0.4), 0 0 30px rgba(0, 226, 118, 0.2);filter:brightness(1.1);}
+.btn-ghost::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, var(--neon1) 0%, transparent 80%);
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: width 0.4s var(--ease), height 0.4s var(--ease), opacity 0.4s var(--ease);
+}
+.btn-ghost:hover::before {
+    width: 150%;
+    height: 150%;
+    opacity: 0.15;
+}
 
 /* magnetic effect baseline */
 .magnetic{position:relative;will-change:transform}
@@ -141,17 +160,17 @@ body{
 
 /* responsive */
 @media (max-width:900px){
-  .hero{flex-direction:column;align-items:flex-start;padding-top:120px}
-  .hero-right{order:2;display:flex;justify-content:flex-start;width:100%;gap:10px}
-  .brand-name{font-size:15px}
-  .nav-links{display:none}
-  .nav-toggle{display:block}
-  .nav[open] .nav-links{display:flex}
+  .hero{flex-direction:column;align-items:flex-start;padding-top:120px}
+  .hero-right{order:2;display:flex;justify-content:flex-start;width:100%;gap:10px}
+  .brand-name{font-size:15px}
+  .nav-links{display:none}
+  .nav-toggle{display:block}
+  .nav[open] .nav-links{display:flex}
 }
 
 /* small */
 @media (max-width:520px){
-  .logo-title{font-size:32px}
-  .g-item img{height:140px}
-  .sticker-row img{width:120px;height:120px}
+  .logo-title{font-size:32px}
+  .g-item img{height:140px}
+  .sticker-row img{width:120px;height:120px}
 }
